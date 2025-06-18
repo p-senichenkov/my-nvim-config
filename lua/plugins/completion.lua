@@ -6,6 +6,21 @@ return {
 		-- jsregexp allows "variable" snippets
 		build = 'make install_jsregexp',
 		lazy = true,
+		config = function()
+			require('luasnip.loaders.from_lua').load {
+				paths = vim.fn.stdpath('config') .. '/lua/snippets'
+			}
+
+			local ls = require('luasnip')
+			-- Switch to next node on C-L
+			vim.keymap.set({ 'i', 's' }, '<C-L>', function()
+				ls.jump(1)
+			end, { silent = true })
+			-- And to previous node on C-J
+			vim.keymap.set({ 'i', 's' }, '<C-J>', function()
+				ls.jump(-1)
+			end, { silent = true })
+		end,
 	},
 
 	-- Completion itself
@@ -21,9 +36,6 @@ return {
 
 			-- Icons
 			'onsails/lspkind.nvim',
-
-			-- Calc source
-			'hrsh7th/cmp-calc',
 
 			'neovim/nvim-lspconfig',
 		},
