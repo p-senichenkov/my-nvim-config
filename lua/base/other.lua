@@ -9,10 +9,6 @@ opt.splitright = true
 -- Move horizontal splits to the bottom
 -- opt.splitbelow = true
 
---[[ Misc ]]--
--- Use system clipboard
--- opt.clipboard = 'unnamedplus'
-
 -- Disable auto-continuation of comments
 vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]
 

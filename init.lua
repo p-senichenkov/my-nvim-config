@@ -2,6 +2,7 @@ require('base/search')
 require('base/tabs')
 require('base/other')
 require('base/appearance')
+require('base/commands')
 
 require('keys/clipboard')
 
