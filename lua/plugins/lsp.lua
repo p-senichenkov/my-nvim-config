@@ -21,13 +21,11 @@ return {
 			-- Enable servers
 			local list = require('util/config/lsp-list')
 			for serv in list.iter do
-				-- Note braces here. We pass empty table. It's not the same as `setup()`, which passes `nil`
 				local config = list.configs[serv]
 				if config then
-					require('lspconfig')[serv].setup(config)
-				else
-					require('lspconfig')[serv].setup {}
+					vim.lsp.config(serv, config)
 				end
+				vim.lsp.enable(serv)
 			end
 		end,
 		-- LSP has built-in laziness support
