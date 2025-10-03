@@ -1,4 +1,4 @@
---[[ A list of active LSP servers. Provides some access functions ]]--
+--[[ A list of active LSP servers. Provides some access functions ]] --
 M = {}
 
 -- A list of servers. Add them here
@@ -41,6 +41,24 @@ M.configs = {
 
 	-- There are a lot of options for pylsp. See
 	-- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
+	pylsp = {
+		settings = {
+			pylsp = {
+				plugins = {
+					autopep8 = {
+						enabled = false
+					},
+					yapf = {
+						enabled = true,
+						executable = 'yapf'
+					},
+					black = {
+						enabled = false
+					}
+				}
+			}
+		}
+	},
 }
 
 return M
