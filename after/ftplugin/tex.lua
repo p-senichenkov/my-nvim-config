@@ -3,7 +3,7 @@
 vim.opt.wrap = true
 vim.opt.linebreak = true
 -- Don't highlight long lines
-vim.api.nvim_set_hl(0, 'ColorColumn', { link = 'Normal' })
+-- vim.api.nvim_set_hl(0, 'ColorColumn', { link = 'Normal' })
 
 -- Spell check (ru_yo --- force using of ё)
 vim.opt.spell = true
