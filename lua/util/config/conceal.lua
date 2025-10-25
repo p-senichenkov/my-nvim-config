@@ -23,6 +23,7 @@ M.custom_cmds = {
 	simple_conceal('O', '∅', true),
 	simple_conceal('di', 'd', true),
 	simple_conceal('ii', '𝔦', true),
+	simple_conceal('impliedby', '⇐', true),
 
 	-- \eps -> ε, etc.
 	{ name = 'eps', mathmode = 1, opt = false, arg = false, concealchar = 'ε' },
@@ -34,7 +35,7 @@ M.custom_cmds = {
 	{ name = 'Co', cmdre = 'Co>', mathmode = 1, opt = false, arg = false, concealchar = 'ℂ' },
 	{ name = 'N', cmdre = 'N>', mathmode = 1, opt = false, arg = false, concealchar = 'ℕ' },
 
-	--[[ "styling" commands ]]--
+	--[[ "styling" commands ]] --
 	-- TODO
 	{ name = 'TODO', opt = false, argstyle = 'boldunder', hlgroup = '@comment.todo' },
 	-- \comment
