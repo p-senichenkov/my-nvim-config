@@ -12,3 +12,5 @@ vim.opt.spelllang = { 'ru_yo', 'en' }
 --[[ Mappings ]] --
 -- Polyglossia russian emdash
 vim.api.nvim_set_keymap('i', '\\-', ' "--- ', { noremap = true })
+-- Polyglossia compound name dash
+vim.api.nvim_set_keymap('i', '\\=', '"--~', { noremap = true })
