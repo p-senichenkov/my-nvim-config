@@ -24,6 +24,7 @@ M.custom_cmds = {
 	simple_conceal('di', 'd', true),
 	simple_conceal('ii', '𝔦', true),
 	simple_conceal('impliedby', '⇐', true),
+	simple_conceal('eqqcolon', '≕', true),
 
 	-- \eps -> ε, etc.
 	{ name = 'eps', mathmode = 1, opt = false, arg = false, concealchar = 'ε' },
