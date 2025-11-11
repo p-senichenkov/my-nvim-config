@@ -1,13 +1,9 @@
 --[[ aliases ]]--
 local opt = vim.opt
-local g = vim.g
 
 --[[ splits ]]--
 -- Move new splits to the right
 opt.splitright = true
-
--- Move horizontal splits to the bottom
--- opt.splitbelow = true
 
 -- Disable auto-continuation of comments
 vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]

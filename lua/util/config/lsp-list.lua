@@ -2,7 +2,7 @@
 M = {}
 
 -- A list of servers. Add them here
-M.list = { 'clangd', 'lua_ls', 'pylsp', 'gopls', 'cmake' }
+M.list = { 'clangd', 'lua_ls', 'pylsp', 'gopls', 'cmake', 'java_language_server' }
 
 -- Provides a lot of useful functions and can be used in generic for directly
 M.iter = vim.iter(M.list)

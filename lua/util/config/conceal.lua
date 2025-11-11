@@ -51,6 +51,7 @@ M.custom_cmds = {
 M.custom_cmds_with_concealed_delims = {
 	-- \set{XX} -> {XX}
 	{ name = 'set', mathmode = true, cchar_open = '{', cchar_close = '}' },
+	{ name = 'Set', mathmode = true, cchar_open = '{', cchar_close = '}' },
 	-- \eref{XX} -> (XX) (both math and text modes)
 	{ name = 'eref', mathmode = true, cchar_open = '(', cchar_close = ')' },
 	{ name = 'eref', cchar_open = '(', cchar_close = ')' },

@@ -8,7 +8,16 @@ return {
 			-- One-quarter bar is too thick for me. Use one-eight one
 			indent = { char = "▏" },
 		},
-		-- config = true,
+		config = function(_, opts)
+			local hooks = require('ibl.hooks')
+			local hl = require('util.config.colors')
+
+			hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+				vim.api.nvim_set_hl(0, 'IblScope', hl.misc['IblScope'])
+			end)
+
+			require('ibl').setup(opts)
+		end
 	},
 
 	-- Bottom panel

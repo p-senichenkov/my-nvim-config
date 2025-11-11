@@ -7,11 +7,12 @@ M.colors = {
 
 	-- Treesitter
 	neon_orange_bg = '#401f10',
-	neon_cyan_bg = '#004f5e',
+	dark_cyan = '#004f5e',
 	neon_red_bg = '#5e0f00',
 	neon_yellow_bg = '#005e10',
+	rifle_green = '#414833',
 
-	-- It's not exactly Cryola blue. It's used for completion match highlight
+	-- It's not exactly Cryola blue
 	cryola_blue = '#1f55dc',
 	-- everybody knows that ghosts are dark-violet
 	ghost_violet = '#5d1b64',
@@ -26,9 +27,10 @@ M.highlights = {
 
 	-- Treesitter
 	['@comment.todo'] = { fg = 'orange', bg = '$neon_orange_bg', bold = true },
-	['@comment.note'] = { fg = 'cyan', bg = '$neon_cyan_bg', bold = true },
+	['@comment.note'] = { fg = 'cyan', bg = '$dark_cyan', bold = true },
 	['@comment.error'] = { fg = 'red', bg = '$neon_red_bg', bold = true },
 	['@comment.warning'] = { fg = 'yellow', bg = '$neon_yellow_bg', bold = true },
+	['@comment.documentation'] = { italic = true, fg = '$rifle_green' },
 
 	-- nvim-cmp
 	['cmp-float-border'] = { fg = '$border_color' },
@@ -49,6 +51,10 @@ M.highlights = {
 
 	-- LaTeX `\comment` command. NOTE this name is matched against custom command automatically
 	['texCCommentArg'] = { fg = 'magenta', fmt = 'italic' },
+}
+
+M.misc = {
+	['IblScope'] = { fg = M.colors.dark_cyan, nocombine = true },
 }
 
 return M
