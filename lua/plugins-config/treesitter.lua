@@ -21,8 +21,9 @@ require('nvim-treesitter.configs').setup {
 	},
 
 	additional_vim_regex_highlighting = false,
-
-	-- @spell capture applies to all text that should be spell-checked.
-	-- Obviously, it shouldn't introduce some special color.
-	vim.api.nvim_set_hl(0, '@spell', {}),
 }
+
+-- @spell capture applies to all text that should be spell-checked.
+-- Obviously, it shouldn't introduce some special color.
+vim.api.nvim_set_hl(0, '@spell', {})
+vim.api.nvim_set_hl(0, '@nospell', {})
