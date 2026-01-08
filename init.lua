@@ -5,6 +5,7 @@ require('base/appearance')
 require('base/commands')
 
 require('keys/clipboard')
+require('keys/misc')
 
 require('plugins-config/lsp')
 
