@@ -25,16 +25,13 @@ M.custom_cmds = {
 	simple_conceal('ii', '𝔦', true),
 	simple_conceal('impliedby', '⇐', true),
 	simple_conceal('eqqcolon', '≕', true),
-
-	-- \eps -> ε, etc.
-	{ name = 'eps', mathmode = 1, opt = false, arg = false, concealchar = 'ε' },
+	simple_conceal('eps', 'ε', true),
+	simple_conceal('sum', '∑', true),
 
 	-- math sets (\R -> ℝ, etc.)
-	-- regexp is needed to ensure it does not match e. g. \Re
-	-- (c) `:help g:vimtex_syntax_custom_cmds`
-	{ name = 'R', cmdre = 'R>', mathmode = 1, opt = false, arg = false, concealchar = 'ℝ' },
-	{ name = 'Co', cmdre = 'Co>', mathmode = 1, opt = false, arg = false, concealchar = 'ℂ' },
-	{ name = 'N', cmdre = 'N>', mathmode = 1, opt = false, arg = false, concealchar = 'ℕ' },
+	simple_conceal('R', 'ℝ', true),
+	simple_conceal('Co', 'ℂ', true),
+	simple_conceal('N', 'ℕ', true),
 
 	--[[ "styling" commands ]] --
 	-- TODO
