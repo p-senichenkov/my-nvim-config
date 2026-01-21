@@ -16,8 +16,5 @@ vim.opt.cursorline = true
 -- Max completion popup size
 vim.opt.pumheight = 20
 
--- Highlight too long lines (compared to colorcolumn, highlights only bad lines)
-vim.fn.matchadd('ColorColumn', '\\%101v', 100)
-
 -- Enable 'conceal' feature (visually replace one text with another)
 vim.opt.conceallevel = 2
