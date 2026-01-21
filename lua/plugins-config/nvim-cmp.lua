@@ -1,6 +1,6 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
-local win_config = require('util/config/float')
+local win_config = require('util.config.float')
 
 cmp.setup {
 	snippet = {
@@ -11,7 +11,7 @@ cmp.setup {
 
 	-- Icons-related settings. See https://github.com/onsails/lspkind.nvim
 	formatting = {
-		fields = { 'abbr', 'kind' },
+		fields = { 'abbr', 'icon' },
 		format = lspkind.cmp_format {
 			-- Only symbol, no text
 			mode = 'symbol',
