@@ -2,7 +2,7 @@
 M = {}
 
 -- A list of servers. Add them here
-M.list = { 'clangd', 'lua_ls', 'pylsp', 'gopls', 'cmake' }
+M.list = { 'clangd', 'pylsp', 'lua_ls' }
 
 -- Provides a lot of useful functions and can be used in generic for directly
 M.iter = vim.iter(M.list)
@@ -58,6 +58,11 @@ M.configs = {
 			}
 		}
 	},
+
+	clangd = {
+		cmd = { '/opt/homebrew/opt/llvm@18/bin/clangd', '--background-index', '-j=8',
+			'-header-insertion=never' }
+	}
 }
 
 return M
