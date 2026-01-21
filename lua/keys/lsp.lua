@@ -1,10 +1,12 @@
 -- [[ LSP keymaps ]] --
-M = {}
+local win_config = require('util.config.float')
 
 local function vsplit()
 	local win_nr = vim.api.nvim_open_win(0, false, { split = 'right' })
 	vim.api.nvim_set_current_win(win_nr)
 end
+
+M = {}
 
 function M.set_keymaps(bufnr)
 	local telescope = require('telescope.builtin')
