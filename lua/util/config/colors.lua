@@ -27,7 +27,7 @@ M.highlights = {
     -- Line numbers and related
     ['LineNr'] = { fg = '$line_nr_dark_gray' },
     ['CursorLineNr'] = { fg = '$line_nr_gray' },
-    ['ColorColumn'] = { bg = 'magenta' },
+    ['ColorColumn'] = { bg = 'DarkMagenta' },
 
     -- Treesitter
     ['@comment.todo'] = { fg = 'orange', bg = '$neon_orange_bg', bold = true },

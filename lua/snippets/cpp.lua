@@ -15,7 +15,7 @@ See https://clangd.llvm.org/config#completion.
 	ls.snippet('namesp', {
 		ls.text_node('namespace '),
 		ls.insert_node(1, 'name'),
-		ls.text_node { ' {', '', '}  // namespace ' },
+		ls.text_node { ' {', '', '} // namespace ' },
 		ls.function_node(function(text)
 			return text[1][1]
 		end, { 1 }),
