@@ -4,38 +4,7 @@ local diag = vim.diagnostic
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(args)
 		local bufnr = args.buf
-
-		local telescope = require('telescope.builtin')
-
-		-- Utility function to define LSP bindings
-		local lspmap = function(keys, func, desc)
-			if desc then
-				desc = 'LSP: ' .. desc
-			end
-			vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-		end
-
-		-- Actions on current symbol
-		lspmap('<F2>', vim.lsp.buf.rename, 'Rename')
-		lspmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
-		-- "Go" actions
-		lspmap('<F12>', telescope.lsp_definitions, 'Go to definition')
-		lspmap('gr', telescope.lsp_references, '[G]oto [R]eferences')
-		lspmap('gI', telescope.lsp_implementations, '[G]oto [I]mplementation')
-
-		-- Hover actions
-		-- I have to redefine default binding, as they've deprecated ability to configure these
-		-- options God knows what for
-		lspmap('K', function()
-			vim.lsp.buf.hover {
-				border = win_config.border,
-			}
-		end, 'Hover')
-		lspmap('<A-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
-		-- Format
-		lspmap('<C-k>', vim.lsp.buf.format, 'Format current buffer')
+		require('keys.lsp').set_keymaps(bufnr)
 
 		-- Change disagnostic signs appearance
 		diag.config {
