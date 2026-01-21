@@ -5,8 +5,6 @@ M = {}
 M.list = {
     'clangd',
     'lua_ls',
-    'gopls',
-    'cmake',
     'ruff',
     'zuban',
 }
