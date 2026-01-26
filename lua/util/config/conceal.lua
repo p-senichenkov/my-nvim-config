@@ -4,8 +4,6 @@ M = {}
 local function simple_conceal(name, concealchar, mathmode)
 	return {
 		name = name,
-		-- Dunno if it's necessary. Looks like it works fine without `cmdre`
-		-- cmdre = name .. '>',
 		mathmode = mathmode == true,
 		opt = false,
 		arg = false,
@@ -14,19 +12,22 @@ local function simple_conceal(name, concealchar, mathmode)
 end
 
 M.custom_cmds = {
-	-- simple conceals (\xxx -> y)
+	-- [[ simple conceals (\xxx -> y) ]] --
+	-- math
 	simple_conceal('amp', '&', true),
 	simple_conceal('sub', '⊂', true),
-	simple_conceal('textunderscore', '_'),
-	simple_conceal('coloneq', '≔', true),
-	simple_conceal('textasciicircum', '^'),
 	simple_conceal('O', '∅', true),
 	simple_conceal('di', 'd', true),
 	simple_conceal('ii', '𝔦', true),
 	simple_conceal('impliedby', '⇐', true),
+	simple_conceal('coloneq', '≔', true),
 	simple_conceal('eqqcolon', '≕', true),
 	simple_conceal('eps', 'ε', true),
 	simple_conceal('sum', '∑', true),
+	simple_conceal('dotsb', '⋯', true),
+	-- text
+	simple_conceal('textunderscore', '_'),
+	simple_conceal('textasciicircum', '^'),
 
 	-- math sets (\R -> ℝ, etc.)
 	simple_conceal('R', 'ℝ', true),
@@ -34,11 +35,8 @@ M.custom_cmds = {
 	simple_conceal('N', 'ℕ', true),
 
 	--[[ "styling" commands ]] --
-	-- TODO
 	{ name = 'TODO', opt = false, argstyle = 'boldunder', hlgroup = '@comment.todo' },
-	-- \comment
 	{ name = 'comment', opt = false, conceal = true },
-	-- \part
 	{ name = 'part', opt = false, argstyle = 'bold', conceal = true },
 
 	-- "removes"
@@ -46,10 +44,8 @@ M.custom_cmds = {
 }
 
 M.custom_cmds_with_concealed_delims = {
-	-- \set{XX} -> {XX}
 	{ name = 'set', mathmode = true, cchar_open = '{', cchar_close = '}' },
 	{ name = 'Set', mathmode = true, cchar_open = '{', cchar_close = '}' },
-	-- \eref{XX} -> (XX) (both math and text modes)
 	{ name = 'eref', mathmode = true, cchar_open = '(', cchar_close = ')' },
 	{ name = 'eref', cchar_open = '(', cchar_close = ')' },
 	{ name = 'braket', mathmode = true, cchar_open = '⟨', cchar_close = '⟩' },
