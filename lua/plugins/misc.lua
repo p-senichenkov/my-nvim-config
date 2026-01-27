@@ -58,10 +58,7 @@ return {
 		'akinsho/git-conflict.nvim',
 		-- Update only when "version" is updated
 		version = '*',
-		config = true,
-		cond = function()
-			local status = vim.system({ 'git', 'status' }, { cwd = vim.fn.expand('%:p:h') }):wait()
-			return status.code == 0
-		end,
+		opts = {},
+		event = 'User CustomGitConflict',
 	}
 }
