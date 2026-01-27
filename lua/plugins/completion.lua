@@ -23,6 +23,14 @@ return {
 		end,
 	},
 
+    {
+        'onsails/lspkind.nvim',
+        lazy = true,
+        opts = {
+            preset = 'codicons',
+        }
+    },
+
 	-- Completion itself
 	{
 		'hrsh7th/nvim-cmp',
