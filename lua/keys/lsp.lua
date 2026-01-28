@@ -48,15 +48,19 @@ function M.set_keymaps(bufnr)
     lspmap('<C-k>', vim.lsp.buf.format, 'Format current buffer')
 
     -- Switch header-source (clangd-specific)
-    vim.keymap.set('n', '<leader>h', function()
+    lspmap('<leader>h', function()
         -- I don't like such way of calling functions, but looks like it's the only way
         vim.api.nvim_cmd(vim.api.nvim_parse_cmd('LspClangdSwitchSourceHeader', {}), {})
-    end, { noremap = true })
+    end, 'Switch header-source')
 
-    vim.keymap.set('n', '<leader>sh', function()
+    lspmap('<leader>sh', function()
         vsplit()
         vim.api.nvim_cmd(vim.api.nvim_parse_cmd('LspClangdSwitchSourceHeader', {}), {})
-    end, { noremap = true })
+    end, 'Switch header-source in vsplit')
+
+    -- Diagnostics
+    lspmap(']g', vim.diagnostic.goto_next, 'Go to next diagnostic')
+    lspmap('[g', vim.diagnostic.goto_prev, 'Go to previous diagnostic')
 end
 
 return M
