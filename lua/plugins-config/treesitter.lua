@@ -27,3 +27,13 @@ require('nvim-treesitter.configs').setup {
 -- Obviously, it shouldn't introduce some special color.
 vim.api.nvim_set_hl(0, '@spell', {})
 vim.api.nvim_set_hl(0, '@nospell', {})
+
+vim.opt.spelllang = { 'en', 'ru_yo' }
+-- Enable spellcheck in buffers that have parser installed
+vim.api.nvim_create_autocmd('FileType', {
+	callback = function ()
+		local bufnr = vim.api.nvim_get_current_buf()
+		local has_parser = pcall(vim.treesitter.get_parser, bufnr)
+		vim.opt_local.spell = has_parser
+	end
+})
