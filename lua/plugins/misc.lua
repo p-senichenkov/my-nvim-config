@@ -62,6 +62,14 @@ return {
         event = 'User CustomGitConflict',
     },
 
+    -- Arc conflict
+    {
+        dir = '/Users/psenichenkov/arc-conflict/arc-conflict.nvim',
+        dev = true,
+        opts = {},
+        event = 'User CustomArcConflict',
+    },
+
     -- "Ultimate FOlds"
     {
         'kevinhwang91/nvim-ufo',
