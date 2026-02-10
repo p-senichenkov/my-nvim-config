@@ -17,7 +17,12 @@ vim.opt.cursorline = true
 vim.opt.pumheight = 20
 
 -- Highlight too long lines (compared to colorcolumn, highlights only bad lines)
-vim.fn.matchadd('ColorColumn', '\\%101v', 100)
+-- This works without autocmd, but fails under some strange circumstances (for example, ssh)
+vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter' }, {
+    callback = function()
+        vim.fn.matchadd('ColorColumn', '\\%101v', 100)
+    end,
+})
 
 -- Enable 'conceal' feature (visually replace one text with another)
 vim.opt.conceallevel = 2
