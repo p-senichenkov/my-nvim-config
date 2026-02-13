@@ -57,6 +57,9 @@ M.highlights = {
     -- Folds
     ['Folded'] = { bg = M.colors.dark_blue },
     ['FoldColumn'] = { bg = 'Normal', fg = '$line_nr_dark_gray' },
+
+    -- Spell (WIP)
+    ['SpellBad'] = { sp = 'Blue', undercurl = true },
 }
 
 M.misc = {
