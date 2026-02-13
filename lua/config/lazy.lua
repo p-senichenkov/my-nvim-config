@@ -36,4 +36,9 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+
+  dev = {
+      path = require('util.config.vars').lazy.dev_path,
+      patterns = { 'p-senichenkov' },
+  }
 })
