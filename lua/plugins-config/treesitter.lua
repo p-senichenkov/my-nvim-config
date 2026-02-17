@@ -1,3 +1,5 @@
+local collections = require('util.collections')
+
 require('nvim-treesitter.configs').setup {
 	ensure_installed = {
 		'cpp',
@@ -13,7 +15,7 @@ require('nvim-treesitter.configs').setup {
 
 		disable = function(_, buf)
 			local max_filesize = 100 * 1024 -- 100 KB
-			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+			local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
 			if ok and stats and stats.size > max_filesize then
 				return true
 			end
@@ -28,11 +30,21 @@ require('nvim-treesitter.configs').setup {
 vim.api.nvim_set_hl(0, '@spell', {})
 vim.api.nvim_set_hl(0, '@nospell', {})
 
+-- A set of filetypes that require `spell` to be enabled unconditionally
+local always_on = collections.Set({ 'tex' })
+
 vim.opt.spelllang = { 'en', 'ru_yo' }
 -- Enable spellcheck in buffers that have parser installed
 vim.api.nvim_create_autocmd('FileType', {
-	callback = function ()
+	callback = function()
 		local bufnr = vim.api.nvim_get_current_buf()
+
+		local ftype = vim.bo.filetype
+		if always_on[ftype] then
+			vim.opt_local.spell = true
+			return
+		end
+
 		local has_parser = pcall(vim.treesitter.get_parser, bufnr)
 		vim.opt_local.spell = has_parser
 	end
