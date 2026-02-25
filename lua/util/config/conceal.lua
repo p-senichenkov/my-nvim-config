@@ -25,6 +25,10 @@ M.custom_cmds = {
 	simple_conceal('eps', 'ε', true),
 	simple_conceal('sum', '∑', true),
 	simple_conceal('dotsb', '⋯', true),
+	simple_conceal('llbracket', '⟦', true),
+	simple_conceal('rrbracket', '⟧', true),
+	simple_conceal('llb', '⟦', true),
+	simple_conceal('rrb', '⟧', true),
 	-- text
 	simple_conceal('textunderscore', '_'),
 	simple_conceal('textasciicircum', '^'),
