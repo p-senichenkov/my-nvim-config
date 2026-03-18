@@ -29,6 +29,7 @@ M.custom_cmds = {
 	simple_conceal('rrbracket', '⟧', true),
 	simple_conceal('llb', '⟦', true),
 	simple_conceal('rrb', '⟧', true),
+	simple_conceal('contra', '🗲', true),
 	-- text
 	simple_conceal('textunderscore', '_'),
 	simple_conceal('textasciicircum', '^'),
