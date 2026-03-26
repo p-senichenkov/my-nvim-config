@@ -24,7 +24,9 @@ return {
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
-		opts = require('plugins-config/lualine'),
+		config = function()
+			require('plugins-config.lualine')
+		end
 	},
 
 	-- Customizable left column
