@@ -6,6 +6,35 @@ local controller = require('util.plugin_controller')
 local dev_specs = {
     {
         plugin_spec = {
+            'p-senichenkov/arc-conflict.nvim',
+            opts = {},
+            event = 'User CustomArcConflict',
+        },
+    },
+
+    {
+        plugin_spec = plugins_util.MakeLazyMappingsSpec({
+            'p-senichenkov/arcadia.nvim',
+            opts = {},
+        }, {
+            {
+                key = '<leader>A',
+                cmd = 'OpenInArcanum',
+                desc = 'Open current file in Arcanum',
+            },
+            {
+                key = '<leader>cs',
+                cmd = 'YaStyleCheck',
+            },
+            {
+                key = '<C-m>',
+                cmd = 'YaStyleApply',
+            }
+        }),
+    },
+
+    {
+        plugin_spec = {
             'p-senichenkov/smart-edit.nvim',
             init = function()
                 vim.keymap.set('ca', 'e', 'SmartEdit')
