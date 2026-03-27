@@ -39,6 +39,5 @@ require("lazy").setup({
 
   dev = {
       path = require('util.config.vars').lazy.dev_path,
-      patterns = { 'p-senichenkov' },
   }
 })

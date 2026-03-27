@@ -13,6 +13,7 @@ return {
         keys = {
             { '<leader>-', '<cmd>Neotree toggle reveal_force_cwd<cr>', desc = 'Toggle NeoTree' },
         },
+        cmd = 'Neotree',
     },
 
     -- More smart comments
