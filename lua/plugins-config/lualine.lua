@@ -7,7 +7,6 @@ onedark_custom.inactive.c = { bg = 'bg' }
 onedark_custom.inactive.a = onedark_custom.normal.b
 
 local HOME = vim.fs.abspath('~')
-local MAX_LEN = vim.o.columns / 5
 local MAX_DEPTH = 4
 local MAX_ENTRY_LEN = 15
 
@@ -20,19 +19,21 @@ local function pwd()
         return ''
     end
 
+    -- Occupy no more than 1/3 of current pane
+    local max_len = math.floor(vim.api.nvim_win_get_width(0) / 3)
     local filename = vim.api.nvim_buf_get_name(0)
     local dir_path = vim.fs.dirname(vim.fs.abspath(filename))
     if vim.startswith(dir_path, HOME) then
         dir_path = '~' .. dir_path:sub(#HOME + 1)
     end
-    return shorten_path.shorten_path(dir_path, MAX_LEN, MAX_DEPTH, MAX_ENTRY_LEN)
+    return shorten_path.shorten_path(dir_path, max_len, MAX_DEPTH, MAX_ENTRY_LEN)
 end
 
 ---@return string
 local function matches()
-	if vim.v.hlsearch == 0 then
-		return ''
-	end
+    if vim.v.hlsearch == 0 then
+        return ''
+    end
     local search_info = vim.fn.searchcount {
         recompute = 1,
         maxcount = 0,

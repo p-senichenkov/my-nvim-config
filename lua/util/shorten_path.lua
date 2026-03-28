@@ -132,10 +132,10 @@ function M.shorten_path(path, max_len, max_depth, max_entry_len)
     local prev_entries_num = #prev_entries
     local prev_min_len = prev_entries_num * 2
 
-    if prev_min_len + 3 < max_len then
+    if prev_min_len + 3 > max_len then
         return cut_path(prev_entries, max_len - 3, max_entry_len) .. shorten_str(last_entry, 3)
     end
-    return cut_path(prev_entries, max_len, max_entry_len) .. last_entry
+    return cut_path(prev_entries, max_len - #last_entry, max_entry_len) .. last_entry
 end
 
 return M
