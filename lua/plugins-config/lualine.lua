@@ -30,6 +30,9 @@ end
 
 ---@return string
 local function matches()
+	if vim.v.hlsearch == 0 then
+		return ''
+	end
     local search_info = vim.fn.searchcount {
         recompute = 1,
         maxcount = 0,
