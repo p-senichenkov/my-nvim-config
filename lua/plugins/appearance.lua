@@ -38,6 +38,25 @@ return {
 		end,
 	},
 
+    -- Customizable right column
+    {
+        'lewis6991/satellite.nvim',
+        lazy = false,
+        opts = {
+            current_only = false,
+            width = 1,
+            winblend = 60,
+            handlers = {
+                cursor = { enable = false },
+                diagnostic = {
+                    signs = { '󰌶', '󰀪', '󰅚' },
+                },
+                marks = { enable = false },
+                quickfix = { enable = false },
+            }
+        }
+    },
+
 	--[[ Themes ]] --
 	-- OneDark
 	{
