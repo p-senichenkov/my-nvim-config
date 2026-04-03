@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 					close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
 					border = win_config.border,
 					source = 'if_many',
-					prefix = ' ',
+					prefix = '',
 					scope = 'cursor',
 					format = function(diagnostic)
 						local border_colors = {
@@ -62,8 +62,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		vim.diagnostic.config({
 			virtual_text = {
-				prefix = '●',
-			}
+                prefix = '',
+            },
 		})
 	end,
 })
