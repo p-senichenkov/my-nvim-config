@@ -81,8 +81,8 @@ require('lualine').setup {
             },
         },
         lualine_c = { 'diagnostics' },
-        lualine_x = { 'filetype' },
-        lualine_y = { { 'progress' }, matches },
+        lualine_x = { matches },
+        lualine_y = { 'filetype' },
         lualine_z = { 'location' }
     },
 

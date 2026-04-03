@@ -26,3 +26,6 @@ vim.api.nvim_create_autocmd({ 'VimEnter', 'WinEnter' }, {
 
 -- Enable 'conceal' feature (visually replace one text with another)
 vim.opt.conceallevel = 2
+
+-- Disable "[3/10]" below statusline
+vim.opt.shortmess:append('S')
