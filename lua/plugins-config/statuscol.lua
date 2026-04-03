@@ -10,10 +10,6 @@ require('statuscol').setup {
 			condition = { builtin.not_empty },
 		},
 		{
-			text = { '%s' },
-			condition = { builtin.not_empty },
-		},
-		{
 			text = { builtin.lnumfunc },
 		}
 	}
