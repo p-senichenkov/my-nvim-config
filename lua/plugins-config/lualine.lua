@@ -1,6 +1,7 @@
 local onedark_custom = require('lualine.themes.onedark')
 local shorten_path = require('util.shorten_path')
 local collections = require('util.collections')
+local timer = require('util.timer')
 
 onedark_custom.normal.c = { bg = 'bg' }
 onedark_custom.inactive.c = { bg = 'bg' }
@@ -57,6 +58,27 @@ local function get_filename_fg()
     return 'fg'
 end
 
+local rec_char = ''
+local function macro_status()
+    local recording = vim.fn.reg_recording()
+    if #recording > 0 then
+        if #rec_char == 0 then
+            rec_char = '●'
+            timer.setTimeout(1000, function()
+                rec_char = '•'
+            end)
+        elseif rec_char == '•' then
+            rec_char = ' '
+            timer.setTimeout(1000, function()
+                rec_char = ''
+            end)
+        end
+        return rec_char .. ' ' .. recording
+    end
+    rec_char = ''
+    return ''
+end
+
 require('lualine').setup {
     options = {
         theme = onedark_custom,
@@ -70,7 +92,10 @@ require('lualine').setup {
 
     -- [a b c    x y z]
     sections = {
-        lualine_a = { 'mode' },
+        lualine_a = {
+            'mode',
+            macro_status,
+        },
         lualine_b = {
             pwd,
             {

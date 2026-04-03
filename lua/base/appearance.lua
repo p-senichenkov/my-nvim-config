@@ -29,3 +29,5 @@ vim.opt.conceallevel = 2
 
 -- Disable "[3/10]" below statusline
 vim.opt.shortmess:append('S')
+-- Disable "recording @X" messages
+vim.opt.shortmess:append('q')
