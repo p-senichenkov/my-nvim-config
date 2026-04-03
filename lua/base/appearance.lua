@@ -1,14 +1,29 @@
+local M = {}
+
+local collections = require('util.collections')
+
 --[[ Enable 24-bit color ]] --
 vim.opt.termguicolors = true
 
 --[[ Line numbers ]] --
--- Make lines numbered (relative to current line)
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.numberwidth = 2
+local ignored_ftypes = collections.Set { 'help', 'neo-tree' }
 
--- Show folds
-vim.opt.foldcolumn = '0'
+function M.ProperLnum()
+    if ignored_ftypes[vim.bo.ft] then
+        return ''
+    end
+
+    local relnum = vim.v.relnum
+
+   if relnum == 0 then
+        return vim.v.lnum
+    end
+    return relnum
+end
+
+-- Make lines numbered (relative to current line)
+vim.opt.numberwidth = 2
+vim.opt.statuscolumn = [[%=%{v:lua.require('base.appearance').ProperLnum()}]]
 
 -- Highlight current line number
 vim.opt.cursorlineopt = 'number'
@@ -32,3 +47,5 @@ vim.opt.conceallevel = 2
 vim.opt.shortmess:append('S')
 -- Disable "recording @X" messages
 vim.opt.shortmess:append('q')
+
+return M

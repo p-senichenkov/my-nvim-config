@@ -29,15 +29,6 @@ return {
 		end
 	},
 
-	-- Customizable left column
-	{
-		'luukvbaal/statuscol.nvim',
-		lazy = false,
-		config = function()
-			require('plugins-config/statuscol')
-		end,
-	},
-
     -- Customizable right column
     {
         'lewis6991/satellite.nvim',
