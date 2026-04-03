@@ -6,10 +6,6 @@ require('statuscol').setup {
 
 	segments = {
 		{
-			text = { builtin.foldfunc },
-			condition = { builtin.not_empty },
-		},
-		{
 			text = { builtin.lnumfunc },
 		}
 	}

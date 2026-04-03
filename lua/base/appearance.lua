@@ -5,9 +5,10 @@ vim.opt.termguicolors = true
 -- Make lines numbered (relative to current line)
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.numberwidth = 2
 
 -- Show folds
-vim.opt.foldcolumn = 'auto'
+vim.opt.foldcolumn = '0'
 
 -- Highlight current line number
 vim.opt.cursorlineopt = 'number'

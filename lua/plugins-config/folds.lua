@@ -1,17 +1,4 @@
-local coll = require('util.collections')
-
 local ufo = require('ufo')
-
-local no_foldcolumn = coll.Set({ 'neo-tree' })
-vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
-	callback = function(_)
-		if no_foldcolumn[vim.bo.filetype] then
-			vim.opt.foldcolumn = '0'
-		else
-			vim.opt.foldcolumn = '1'
-		end
-	end
-})
 
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
