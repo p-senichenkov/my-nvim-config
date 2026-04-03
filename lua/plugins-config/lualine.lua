@@ -105,7 +105,7 @@ require('lualine').setup {
                 end,
             },
         },
-        lualine_c = { 'diagnostics' },
+        lualine_c = { 'diagnostics', 'diff' },
         lualine_x = { matches },
         lualine_y = { 'filetype' },
         lualine_z = { 'location' }

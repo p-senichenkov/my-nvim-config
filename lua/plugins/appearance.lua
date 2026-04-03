@@ -34,9 +34,7 @@ return {
         'lewis6991/satellite.nvim',
         lazy = false,
         opts = {
-            current_only = false,
             width = 1,
-            winblend = 60,
             excluded_filetypes = { 'neo-tree' },
             handlers = {
                 cursor = { enable = false },
