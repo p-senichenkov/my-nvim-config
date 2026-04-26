@@ -19,6 +19,8 @@ M.colors = {
     frost_sky = '#00a6fa',
     -- It's very different from built-in DarkBlue
     dark_blue = '#002137',
+    -- Used for list characters
+    barely_visible = '#00007a'
 }
 
 M.highlights = {
@@ -60,6 +62,8 @@ M.highlights = {
 
     -- Spell (WIP)
     ['SpellBad'] = { sp = 'Blue', undercurl = true },
+
+    ['Whitespace'] = { fg = '$barely_visible' },
 }
 
 M.misc = {

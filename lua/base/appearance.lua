@@ -48,4 +48,8 @@ vim.opt.shortmess:append('S')
 -- Disable "recording @X" messages
 vim.opt.shortmess:append('q')
 
+-- Make tabs and trailing spaces visible
+vim.opt.list = true
+vim.opt.listchars = "tab:<->,trail:␣"
+
 return M
