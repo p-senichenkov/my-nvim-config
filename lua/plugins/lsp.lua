@@ -27,6 +27,9 @@ return {
 				end
 				vim.lsp.enable(serv)
 			end
+            for serv in vim.iter(list.disable) do
+                vim.lsp.enable(serv, false)
+            end
 		end,
 		-- LSP has built-in laziness support
 		lazy = false,

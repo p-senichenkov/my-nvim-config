@@ -7,6 +7,12 @@ M.list = { 'clangd', 'lua_ls', 'pylsp', 'gopls', 'cmake', 'ruff' }
 -- Provides a lot of useful functions and can be used in generic for directly
 M.iter = vim.iter(M.list)
 
+-- Explicitly disable these LSPs
+M.disable = {
+    -- GitLab AI companion
+    'gitlab_duo',
+}
+
 -- Configurations for some servers
 M.configs = {
 	lua_ls = {
