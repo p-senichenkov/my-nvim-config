@@ -2,9 +2,8 @@
 ---@param command string
 ---@return nil
 local function GitRebaseKeymap(key, command)
-	vim.keymap.set('n', '<leader>' .. key, function()
-		vim.cmd { cmd = command }
-	end, { buffer = true, desc = command .. ' current line', noremap = true })
+    vim.keymap.set({ 'n', 'v' }, '<leader>' .. key, ':' .. command .. '<CR>',
+        { buffer = true, desc = command .. ' current line', noremap = true })
 end
 
 -- Some convenient key bindings
