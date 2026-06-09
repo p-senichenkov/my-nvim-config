@@ -59,8 +59,12 @@ function M.set_keymaps(bufnr)
     end, 'Switch header-source in vsplit')
 
     -- Diagnostics
-    lspmap(']g', vim.diagnostic.goto_next, 'Go to next diagnostic')
-    lspmap('[g', vim.diagnostic.goto_prev, 'Go to previous diagnostic')
+    lspmap(']g', function()
+        vim.diagnostic.jump { count = 1 }
+    end, 'Go to next diagnostic')
+    lspmap('[g', function()
+        vim.diagnostic.jump { count = -1 }
+    end)
 end
 
 return M
