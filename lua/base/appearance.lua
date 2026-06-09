@@ -13,9 +13,13 @@ function M.ProperLnum()
         return ''
     end
 
+    if vim.v.virtnum ~= 0 then
+        return ''
+    end
+
     local relnum = vim.v.relnum
 
-   if relnum == 0 then
+    if relnum == 0 then
         return vim.v.lnum
     end
     return relnum
