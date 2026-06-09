@@ -36,10 +36,7 @@ return {
         'nvim-treesitter/nvim-treesitter',
         -- Cannot use `ft` here, since comments can appear in any file
         lazy = false,
-        branch = 'master',
-        build = function()
-            require('nvim-treesitter.install').update({ with_sync = true })()
-        end,
+        build = ':TSUpdate',
         config = function()
             require('plugins-config/treesitter')
         end,
