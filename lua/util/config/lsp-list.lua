@@ -5,7 +5,6 @@ M = {}
 M.list = {
     'clangd',
     'lua_ls',
-    'pylsp',
     'gopls',
     'cmake',
     'ruff',
@@ -34,15 +33,19 @@ M.configs = {
 
             client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
                 runtime = {
-                    -- Most likely JIT is used
                     version = 'LuaJIT',
+                    path = {
+                        'lua/?.lua',
+                        'lua/?/init.lua',
+                    },
                 },
 
                 -- Make the server aware of Neovim runtime files
                 workspace = {
                     checkThirdParty = false,
                     library = {
-                        vim.env.VIMRUNTIME
+                        vim.env.VIMRUNTIME,
+                        vim.api.nvim_get_runtime_file("lua/lspconfig", false)[1],
                     }
                 }
             })
@@ -50,23 +53,6 @@ M.configs = {
 
         settings = {
             Lua = {}
-        }
-    },
-
-    -- There are a lot of options for pylsp. See
-    -- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
-    pylsp = {
-        settings = {
-            pylsp = {
-                plugins = {
-                    ruff = {
-                        enabled = false,
-                    },
-                    mypy = {
-                        enabled = false,
-                    },
-                }
-            }
         }
     },
 }
