@@ -16,21 +16,6 @@ return {
         cmd = 'Neotree',
     },
 
-    -- More smart comments
-    {
-        'numToStr/Comment.nvim',
-        config = true,
-        keys = {
-            { 'gcc' },
-            { 'gbc' },
-            { 'gc', mode = { 'n', 'v' } },
-            { 'gb', mode = { 'n', 'v' } },
-            { 'gcO' },
-            { 'gco' },
-            { 'gcA' }
-        },
-    },
-
     -- More smart analyzer for highlighting
     {
         'nvim-treesitter/nvim-treesitter',
