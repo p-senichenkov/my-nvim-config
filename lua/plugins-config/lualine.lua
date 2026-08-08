@@ -82,7 +82,6 @@ end
 require('lualine').setup {
     options = {
         theme = onedark_custom,
-        always_show_tabline = false,
     },
 
     -- Different behaviour for specific filetypes
@@ -125,18 +124,5 @@ require('lualine').setup {
         lualine_x = {},
         lualine_y = {},
         lualine_z = { 'location' }
-    },
-
-    tabline = {
-        lualine_a = {
-            {
-                'tabs',
-                mode = 1,
-                path = 3,
-                symbols = {
-                    modified = '•',
-                },
-            }
-        }
     },
 }
