@@ -14,7 +14,7 @@ vim.api.nvim_set_hl(0, '@spell', {})
 vim.api.nvim_set_hl(0, '@nospell', {})
 
 -- A set of filetypes that require `spell` to be enabled unconditionally
-local always_on = collections.Set({ 'tex' })
+local always_on = collections.Set({ 'tex', 'gitcommit' })
 
 vim.opt.spelllang = { 'en', 'ru_yo' }
 -- Enable spellcheck in buffers that have parser installed
