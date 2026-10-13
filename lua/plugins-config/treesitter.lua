@@ -17,9 +17,12 @@ vim.api.nvim_set_hl(0, '@nospell', {})
 local always_on = collections.Set({ 'tex', 'gitcommit' })
 
 vim.opt.spelllang = { 'en', 'ru_yo' }
--- Enable spellcheck in buffers that have parser installed
 vim.api.nvim_create_autocmd('FileType', {
-    callback = function()
+    callback = function(args)
+        -- Treesitter highlighting now requires to be enabled manually
+        pcall(vim.treesitter.start, args.buf)
+
+        -- Enable spellcheck in buffers that have parser installed
         local ftype = vim.bo.filetype
         if always_on[ftype] then
             vim.opt_local.spell = true

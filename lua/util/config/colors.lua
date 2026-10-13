@@ -70,4 +70,6 @@ M.misc = {
     ['IblScope'] = { fg = M.colors.dark_cyan, nocombine = true },
 }
 
+M.disable = { "@lsp.type.comment" }
+
 return M
