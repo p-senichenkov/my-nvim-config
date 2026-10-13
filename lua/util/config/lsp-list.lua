@@ -53,6 +53,10 @@ M.configs = {
             Lua = {}
         }
     },
+
+    clangd = {
+        cmd = { 'clangd', '--background-index', '-j=8', '-header-insertion=never' },
+    }
 }
 
 return M
